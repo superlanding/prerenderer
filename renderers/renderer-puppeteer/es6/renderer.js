@@ -67,7 +67,10 @@ class PuppeteerRenderer {
           return
         }
       }
-
+      if (this._rendererOptions.handleRequest) {
+        this._rendererOptions.handleRequest(req, baseURL)
+        return
+      }
       req.continue()
     })
   }
